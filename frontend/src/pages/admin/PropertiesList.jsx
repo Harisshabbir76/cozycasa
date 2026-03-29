@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { apiCall } from '../../utils/api';
 import {
-  FiPlus, FiMapPin, FiEdit, FiTrash2, FiImage, FiKey, FiDroplet
+  FiPlus, FiMapPin, FiEdit, FiTrash2, FiImage
 } from 'react-icons/fi';
 
 const getImageUrl = (url) => {

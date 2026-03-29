@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { apiCall } from '../../utils/api';
 import { FiPlus, FiEdit3, FiTrash2, FiX, FiUpload, FiLoader } from 'react-icons/fi';
-import axios from 'axios';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FiHome, FiMapPin, FiBriefcase, FiAperture, FiTag, FiGrid, FiArrowRight } from 'react-icons/fi';
 import { slugify } from '../../utils/slugify'; // Fixed import path
 
@@ -21,10 +20,8 @@ const getTypeIcon = (type) => {
 const PropertyTypesPage = () => {
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState(null);
-  const [newCategory, setNewCategory] = useState({ name: '', description: '', image: null });
   const [editCategory, setEditCategory] = useState({ name: '', description: '', image: null });
   const [imagePreview, setImagePreview] = useState('');
   const [uploadLoading, setUploadLoading] = useState(false);
@@ -34,11 +31,7 @@ const PropertyTypesPage = () => {
   const { user } = useAuth();
   const isAdmin = user?.isAdmin || user?.role === 'admin';
 
-  useEffect(() => {
-    fetchCategories();
-  }, []);
-
-  const fetchCategories = async () => {
+  const fetchCategories = useCallback(async () => {
     try {
       const res = await apiCall({ method: 'get', url: '/categories' });
       const allCategories = res || [];
@@ -54,29 +47,12 @@ const PropertyTypesPage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [isAdmin]);
 
-  const createCategory = async (e) => {
-    e.preventDefault();
-    if (!newCategory.name.trim()) return setError('Name is required');
-    try {
-      setUploadLoading(true);
-      const formData = new FormData();
-      formData.append('name', newCategory.name);
-      formData.append('description', newCategory.description);
-      if (newCategory.image) formData.append('image', newCategory.image);
-      await apiCall({ method: 'post', url: '/categories', data: formData, headers: { 'Content-Type': 'multipart/form-data' } });
-      setNewCategory({ name: '', description: '', image: null });
-      setImagePreview('');
-      setShowAddModal(false);
-      setError('');
-      fetchCategories();
-    } catch (err) {
-      setError(err.response?.data?.message || 'Failed to create property type');
-    } finally {
-      setUploadLoading(false);
-    }
-  };
+  useEffect(() => {
+    fetchCategories();
+  }, [fetchCategories]);
+
 
   const updateCategory = async (e) => {
     e.preventDefault();
@@ -112,41 +88,16 @@ const PropertyTypesPage = () => {
     }
   };
 
-  const handleImageChange = (e, isEdit = false) => {
+  const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const preview = URL.createObjectURL(file);
       setImagePreview(preview);
-      if (isEdit) {
-        setEditCategory({...editCategory, image: file });
-      } else {
-        setNewCategory({...newCategory, image: file });
-      }
+      setEditCategory({...editCategory, image: file });
     }
   };
 
-  const handleDrop = (e, isEdit = false) => {
-    e.preventDefault();
-    const file = e.dataTransfer.files[0];
-    if (file && file.type.startsWith('image/')) {
-      const preview = URL.createObjectURL(file);
-      setImagePreview(preview);
-      if (isEdit) {
-        setEditCategory({...editCategory, image: file });
-      } else {
-        setNewCategory({...newCategory, image: file });
-      }
-    }
-  };
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
-
-  const handleCategoryClick = (categoryId, categoryName) => {
-    const typeSlug = slugify(categoryName);
-    navigate(`/propertytypes/${typeSlug}`);
-  };
 
   const getImageUrl = (path) => {
     if (!path) return '';
@@ -280,7 +231,7 @@ const PropertyTypesPage = () => {
                       <p className="admin-upload-text">Click to change image</p>
                     </>
                   )}
-                  <input id="edit-image" type="file" accept="image/*" onChange={(e) => handleImageChange(e, true)} style={{display: 'none'}} />
+                  <input id="edit-image" type="file" accept="image/*" onChange={(e) => handleImageChange(e)} style={{display: 'none'}} />
                 </div>
               </div>
               {error && <div style={{ color: '#dc2626', fontSize: '0.85rem', marginBottom: '16px' }}>{error}</div>}
