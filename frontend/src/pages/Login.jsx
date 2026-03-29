@@ -503,9 +503,9 @@ const Login = () => {
 
             {!showForgot ? (
               <p className="login-forgot" style={{textAlign: 'center', marginTop: '1rem', fontSize: '.82rem', color: '#999'}}>
-                <a href="#" onClick={handleForgotToggle} style={{color: 'var(--kelly-dk)', cursor: 'pointer', textDecoration: 'none', borderBottom: '1px solid rgba(56,142,60,.3)', paddingBottom: '1px'}}>
+                <button onClick={handleForgotToggle} style={{color: 'var(--kelly-dk)', cursor: 'pointer', textDecoration: 'none', borderBottom: '1px solid rgba(56,142,60,.3)', paddingBottom: '1px', background: 'none', border: 'none', font: 'inherit'}}>
                   Forgot Password?
-                </a>
+                </button>
               </p>
             ) : null}
 

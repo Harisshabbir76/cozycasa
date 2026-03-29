@@ -671,10 +671,8 @@ const AddProperty = ({ refresh }) => {
     bedrooms: 0, bathrooms: 0, category: '', latitude: null, longitude: null
   });
   const [categories, setCategories] = useState([]);
-  const [loadingCategories, setLoadingCategories] = useState(true);
   const [locationSuggestions, setLocationSuggestions] = useState([]);
   const [geocodingLoading, setGeocodingLoading] = useState(false);
-  const locationInputRef = useRef(null);
 
   if (typeof document !== 'undefined' && !document.getElementById('add-prop-multi-styles')) {
     const tag = document.createElement('style');

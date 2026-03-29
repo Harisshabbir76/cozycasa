@@ -670,11 +670,11 @@ const AddPropertyType = ({ refresh }) => {
     <div className="add-type-page">
       {/* Breadcrumb */}
       <div className="add-type-breadcrumb">
-        <a onClick={() => navigate('/admin/dashboard')}>Dashboard</a>
+        <button type="button" onClick={() => navigate('/admin/dashboard')}>Dashboard</button>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>
-        <a onClick={() => navigate('/admin/dashboard/property-types')}>Property Types</a>
+        <button type="button" onClick={() => navigate('/admin/dashboard/property-types')}>Property Types</button>
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
           <polyline points="9 18 15 12 9 6"></polyline>
         </svg>

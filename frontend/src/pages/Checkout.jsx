@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { guestAPI } from '../utils/api';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements, CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { FiCreditCard, FiUser, FiMail, FiPhone, FiFileText, FiCalendar, FiUsers, FiHome, FiMapPin, FiCheckCircle } from 'react-icons/fi';
+import { FiCreditCard, FiUser, FiMail, FiPhone, FiFileText, FiCalendar, FiUsers, FiMapPin } from 'react-icons/fi';
 import './Checkout.css';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY || 'pk_test_51T9wuk56HyESbegXpKTGQarLaS3U3cZhdeAlAviXl8f2oSNUDRQu7yQ5xsfcoRwfIUfb1FdfBtzxvDle84QB81aZ00Jvoxvhoo');

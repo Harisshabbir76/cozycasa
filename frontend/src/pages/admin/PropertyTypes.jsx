@@ -4,7 +4,6 @@ import { apiCall } from '../../utils/api';
 import { FiPlus, FiEdit3, FiTrash2, FiX, FiUpload, FiLoader } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
 import { FiHome, FiMapPin, FiBriefcase, FiAperture, FiTag, FiGrid, FiArrowRight } from 'react-icons/fi';
-import { slugify } from '../../utils/slugify'; // Fixed import path
 
 // Map property type to icons (same as homepage)
 const getTypeIcon = (type) => {
