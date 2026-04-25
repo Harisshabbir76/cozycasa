@@ -87,10 +87,9 @@ const EditProperty = ({ properties, refresh }) => {
     bedrooms: 1, bathrooms: 1, categoryId: '', latitude: null, longitude: null
   });
   const [categories, setCategories] = useState([]);
-  const [loadingCategories, setLoadingCategories] = useState(true);
+  const [, setLoadingCategories] = useState(true);
   const [locationSuggestions, setLocationSuggestions] = useState([]);
   const [geocodingLoading, setGeocodingLoading] = useState(false);
-  const locationInputRef = useRef(null);
 
 
 

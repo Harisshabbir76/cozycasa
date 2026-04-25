@@ -671,7 +671,7 @@ const AddProperty = ({ refresh }) => {
     bedrooms: 0, bathrooms: 0, category: '', latitude: null, longitude: null
   });
   const [categories, setCategories] = useState([]);
-  const [loadingCategories, setLoadingCategories] = useState(false);
+  const [, setLoadingCategories] = useState(false);
   const [locationSuggestions, setLocationSuggestions] = useState([]);
   const [geocodingLoading, setGeocodingLoading] = useState(false);
 
