@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { guestAPI } from '../utils/api';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
@@ -37,7 +37,7 @@ const PropertyDetail = () => {
   useEffect(() => {
     const fetchProperty = async () => {
       try {
-        const res = await axios.get(`/api/properties/${id}`);
+        const res = await guestAPI.get(`/properties/${id}`);
         setProperty(res.data);
       } catch (err) { console.error(err); }
       finally { setLoading(false); }
@@ -55,7 +55,7 @@ const PropertyDetail = () => {
   const checkAvailability = async () => {
     if (!booking.checkIn || !booking.checkOut) return alert('Select dates first');
     try {
-      const res = await axios.post('/api/bookings/check-availability', {
+      const res = await guestAPI.post('/bookings/check-availability', {
         propertyId: id,
         checkIn: booking.checkIn,
         checkOut: booking.checkOut

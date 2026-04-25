@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import { guestAPI } from '../utils/api';
 import { slugify, unsSlugify } from '../utils/slugify';
 import PropertyCard from '../components/PropertyCard';
 import { FiInbox, FiFilter, FiSearch, FiX } from 'react-icons/fi';
@@ -31,8 +31,9 @@ const Properties = () => {
 
   const fetchCategories = useCallback(async () => {
     try {
-      const res = await axios.get('/api/categories');
-      setCategories(res.data.filter(cat => cat.propertyCount > 0));
+      const res = await guestAPI.get('/categories');
+      const data = Array.isArray(res.data) ? res.data : [];
+      setCategories(data.filter(cat => cat.propertyCount > 0));
     } catch (error) {
       console.error('Error fetching categories:', error);
     }
@@ -54,8 +55,8 @@ const Properties = () => {
       params.append('sortBy', field);
       params.append('order', order);
 
-      const res = await axios.get(`/api/properties?${params.toString()}`);
-      setProperties(res.data || []);
+      const res = await guestAPI.get(`/properties?${params.toString()}`);
+      setProperties(Array.isArray(res.data) ? res.data : []);
     } catch (error) {
       console.error('Error fetching properties:', error);
       setProperties([]);
