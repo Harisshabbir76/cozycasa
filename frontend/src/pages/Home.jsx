@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import { guestAPI } from '../utils/api';
 import { slugify } from '../utils/slugify';
 import PropertyCard from '../components/PropertyCard';
 import FAQs from '../components/FAQs';
@@ -891,12 +891,13 @@ const Home = () => {
     const fetchData = async () => {
       try {
         // Fetch all properties (no limit to enable pagination)
-        const propsRes = await axios.get('/api/properties');
-        setAllProperties(propsRes.data || []);
+        const propsRes = await guestAPI.get('/properties');
+        const propsData = Array.isArray(propsRes.data) ? propsRes.data : [];
+        setAllProperties(propsData);
 
         // Fetch categories with property counts (for search dropdown)
-        const categoriesRes = await axios.get('/api/categories');
-        const categoriesData = categoriesRes.data || [];
+        const categoriesRes = await guestAPI.get('/categories');
+        const categoriesData = Array.isArray(categoriesRes.data) ? categoriesRes.data : [];
         setCategories(categoriesData.filter(cat => cat.propertyCount > 0));
 
       } catch (error) {
