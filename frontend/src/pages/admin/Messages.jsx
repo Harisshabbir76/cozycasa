@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { apiCall } from '../../utils/api';
-import { FiMail, FiClock, FiX, FiEye, FiFilter, FiChevronDown, FiMessageSquare, FiPhone } from 'react-icons/fi';
+import { FiMail, FiClock, FiX, FiEye, FiFilter, FiChevronDown, FiMessageSquare, FiPhone, FiTrash2 } from 'react-icons/fi';
 
 const Messages = ({ refresh }) => {
   const [messages, setMessages] = useState([]);
