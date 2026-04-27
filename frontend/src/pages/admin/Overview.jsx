@@ -84,7 +84,7 @@ const Overview = ({ properties, bookings }) => {
               <div key={cat._id} className="cat-card-shell">
                 <div className="cat-thumb-shell">
                   {cat.image
-                    ? <img src={`http://localhost:5000${cat.image}`} alt={cat.name} />
+                    ? <img src={`${process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000'}${cat.image}`} alt={cat.name} />
                     : '🏠'}
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>

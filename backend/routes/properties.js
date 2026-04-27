@@ -80,8 +80,8 @@ router.post('/', protect, admin, upload.array('images', 10), async (req, res) =>
     }
     
     // Handle images
-    if (req.files && req.files.length > 0) {
-      propertyData.images = req.files.map(file => `/uploads/${file.filename}`);
+    if (req.files) {
+      propertyData.images = req.files.map(file => file.path);
     }
     
     const property = await Property.create(propertyData);
@@ -114,8 +114,8 @@ router.put('/:id', protect, admin, upload.array('images', 10), async (req, res) 
     }
 
     if (req.files && req.files.length > 0) {
-      const newImages = req.files.map(file => `/uploads/${file.filename}`);
-      updateData.images = [...(property.images || []), ...newImages];
+      const newImages = req.files.map(file => file.path);
+      updateData.images = [...(updateData.images || []), ...newImages];
     }
 
     if (updateData.amenities && typeof updateData.amenities === 'string') {

@@ -91,7 +91,7 @@ router.post('/', protect, admin, upload.single('image'), async (req, res) => {
 
     // Add image if uploaded
     if (req.file) {
-      categoryData.image = `/uploads/${req.file.filename}`;
+      categoryData.image = req.file.path;
     }
 
     // Validate required name
@@ -111,7 +111,7 @@ router.put('/:id', protect, admin, upload.single('image'), async (req, res) => {
   try {
     const updateData = req.body;
     if (req.file) {
-      updateData.image = `/uploads/${req.file.filename}`;
+      updateData.image = req.file.path;
     }
     
     const category = await Category.findByIdAndUpdate(

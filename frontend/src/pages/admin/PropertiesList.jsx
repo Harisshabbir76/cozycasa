@@ -6,9 +6,10 @@ import {
 } from 'react-icons/fi';
 
 const getImageUrl = (url) => {
-  if (!url) return null;
+  if (!url) return '';
   if (url.startsWith('http')) return url;
-  return `http://localhost:5000${url}`;
+  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+  return `${backendUrl}${url}`;
 };
 
 const PropertiesList = ({ properties, refresh }) => {

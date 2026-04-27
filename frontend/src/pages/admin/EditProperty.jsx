@@ -209,7 +209,10 @@ const EditProperty = ({ properties, refresh }) => {
     });
   };
 
-  const getImageUrl = (url) => url.startsWith('http') ? url : `http://localhost:5000${url}`;
+  const getImageUrl = (url) => {
+    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
+    return url.startsWith('http') ? url : `${backendUrl}${url}`;
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();

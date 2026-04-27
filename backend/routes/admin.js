@@ -12,15 +12,7 @@ const Message = require('../models/Message');
 
 const router = express.Router();
 
-// Multer Config
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => cb(null, 'uploads/'),
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9);
-    cb(null, file.fieldname + '-' + uniqueSuffix + path.extname(file.originalname));
-  }
-});
-const upload = multer({ storage });
+const upload = require('../middleware/upload');
 
 router.use(protect, isAdmin);
 
@@ -55,7 +47,7 @@ router.post('/properties', upload.array('images', 20), async (req, res) => {
     }
     
     if (req.files && req.files.length > 0) {
-      propertyData.images = req.files.map(file => `/uploads/${file.filename}`);
+      propertyData.images = req.files.map(file => file.path);
     }
     
     const property = new Property(propertyData);
@@ -76,7 +68,7 @@ router.put('/properties/:id', upload.array('images', 20), async (req, res) => {
     // Handle new uploads
     let newImages = [];
     if (req.files && req.files.length > 0) {
-      newImages = req.files.map(file => `/uploads/${file.filename}`);
+      newImages = req.files.map(file => file.path);
     }
 
     // Combine with existing images sent from frontend
