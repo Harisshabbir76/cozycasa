@@ -1172,7 +1172,7 @@ const Home = () => {
               <div
                 key={category._id}
                 className={`property-type-card ${category.image ? '' : 'no-image'}`}
-                style={{ backgroundImage: category.image ? `url(${(process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000')}${category.image})` : 'none' }}
+                style={{ backgroundImage: category.image ? `url(${category.image})` : 'none' }}
                 onClick={() => handleCategoryClick(category.name)}
               >
                 <div className="property-type-overlay"></div>

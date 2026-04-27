@@ -5,12 +5,7 @@ import {
   FiPlus, FiMapPin, FiEdit, FiTrash2, FiImage
 } from 'react-icons/fi';
 
-const getImageUrl = (url) => {
-  if (!url) return '';
-  if (url.startsWith('http')) return url;
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-  return `${backendUrl}${url}`;
-};
+const getImageUrl = (url) => url || '';
 
 const PropertiesList = ({ properties, refresh }) => {
   const navigate = useNavigate();

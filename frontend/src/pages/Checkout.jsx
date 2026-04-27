@@ -58,12 +58,8 @@ const Checkout = () => {
         );
     }
 
-    const getImageUrl = (url) => {
-        if (!url) return 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750';
-        if (url.startsWith('http')) return url;
-        const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-        return `${backendUrl}${url}`;
-    };
+    const getImageUrl = (url) =>
+        url || 'https://images.unsplash.com/photo-1512917774080-9991f1c4c750';
 
     const CheckoutForm = () => {
       const stripe = useStripe();

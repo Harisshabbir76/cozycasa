@@ -5,12 +5,9 @@ import { slugify } from '../utils/slugify';
 
 const PropertyCard = ({ property }) => {
   const navigate = useNavigate();
-  const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
   const imageUrl =
     property.images && property.images.length > 0
-      ? property.images[0].startsWith('http')
-        ? property.images[0]
-        : `${backendUrl}${property.images[0]}`
+      ? property.images[0]
       : 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80';
 
   const getCityName = (property) => {

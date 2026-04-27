@@ -98,11 +98,7 @@ const PropertyTypesPage = () => {
 
 
 
-  const getImageUrl = (path) => {
-    if (!path) return '';
-    const backendUrl = process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000';
-    return path.startsWith('http') ? path : `${backendUrl}${path}`;
-  };
+  const getImageUrl = (path) => path || '';
 
   if (loading) {
     return (
