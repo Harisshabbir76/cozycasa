@@ -6,6 +6,14 @@ const path = require('path');
 // Load env vars
 dotenv.config({ path: './.env' });
 
+// Prevent crashes from unhandled errors - keeps server alive and logs the cause
+process.on('uncaughtException', (err) => {
+  console.error('Uncaught Exception:', err.message, err.stack);
+});
+process.on('unhandledRejection', (reason) => {
+  console.error('Unhandled Rejection:', reason);
+});
+
 // Routes
 const authModule = require('./routes/auth');
 const authRoutes = authModule.router;
@@ -40,10 +48,14 @@ app.use(
       "http://localhost:3000", 
       "https://cozycasa-ruddy.vercel.app" 
     ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true
   })
 );
+
+// Handle OPTIONS preflight for all routes
+app.options('*', cors());
 
 // Webhook route must come BEFORE express.json() if it needs raw body
 app.use('/api/webhook/stripe', webhookRoutes);
@@ -51,6 +63,9 @@ app.use('/api/webhook/stripe', webhookRoutes);
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
+// Health check endpoint for Railway
+app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
 
 // Routes
 app.use('/api/auth', authRoutes);
