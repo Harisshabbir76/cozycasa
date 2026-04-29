@@ -517,8 +517,8 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to="/" className="nav-logo">
-            <span className="nav-logo-cozy">Cozy</span>
-            <span className="nav-logo-casa">Casa</span>
+            <span className="nav-logo-cozy">Resi D'</span>
+            <span className="nav-logo-casa"> Elite</span>
           </Link>
 
           {/* Desktop links */}
@@ -569,8 +569,8 @@ const Navbar = () => {
 
             <div className="nb-sidebar-header">
               <Link to="/" className="nb-sidebar-logo" onClick={() => setMenuOpen(false)}>
-                <span className="nb-sidebar-logo-cozy">Cozy</span>
-                <span className="nb-sidebar-logo-casa">Casa</span>
+                <span className="nb-sidebar-logo-cozy">Resi D'</span>
+                <span className="nb-sidebar-logo-casa"> Elite</span>
               </Link>
               <button className="nb-sidebar-close" onClick={() => setMenuOpen(false)} aria-label="Close menu">
                 <FiX />

@@ -86,7 +86,7 @@ app.use('/api/messages', messageRoutes);
 
 // Test route
 app.get('/api/test', (req, res) => {
-  res.json({ message: 'CozyCasa Backend Running!' });
+  res.json({ message: 'Resi D\' Elite Backend Running!' });
 });
 
 const PORT = process.env.PORT || 5000;

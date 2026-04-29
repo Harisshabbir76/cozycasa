@@ -217,7 +217,7 @@ const BookingsView = ({ bookings, refresh }) => {
               )}
               {getCustomerPhone(b) && (
                 <a
-                  href={`https://wa.me/${getCustomerPhone(b).replace(/\D/g, '')}?text=${encodeURIComponent(`Hi ${getCustomerName(b)}, confirming your booking at CozyCasa.`)}`}
+                  href={`https://wa.me/${getCustomerPhone(b).replace(/\D/g, '')}?text=${encodeURIComponent(`Hi ${getCustomerName(b)}, confirming your booking at Resi D' Elite.`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="action-btn whatsapp-btn"
@@ -302,7 +302,7 @@ const BookingsView = ({ bookings, refresh }) => {
                         )}
                         {getCustomerPhone(b) && (
                           <a
-                            href={`https://wa.me/${getCustomerPhone(b).replace(/\D/g, '')}?text=${encodeURIComponent(`Hi ${getCustomerName(b)}, confirming your booking at CozyCasa.`)}`}
+                            href={`https://wa.me/${getCustomerPhone(b).replace(/\D/g, '')}?text=${encodeURIComponent(`Hi ${getCustomerName(b)}, confirming your booking at Resi D' Elite.`)}`}
                             target="_blank"
                             rel="noreferrer"
                             className="action-btn whatsapp-btn"
@@ -525,7 +525,7 @@ const BookingsView = ({ bookings, refresh }) => {
               )}
               {getCustomerPhone(selectedBooking) && (
                 <a
-                  href={`https://wa.me/${getCustomerPhone(selectedBooking).replace(/\D/g, '')}?text=${encodeURIComponent(`Hi ${getCustomerName(selectedBooking)}, confirming your booking at CozyCasa.`)}`}
+                  href={`https://wa.me/${getCustomerPhone(selectedBooking).replace(/\D/g, '')}?text=${encodeURIComponent(`Hi ${getCustomerName(selectedBooking)}, confirming your booking at Resi D' Elite.`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="btn-whatsapp"

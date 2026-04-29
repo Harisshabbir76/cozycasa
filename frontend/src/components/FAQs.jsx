@@ -26,7 +26,7 @@ const FAQs = () => {
     },
     {
       question: "Are the properties verified?",
-      answer: "Yes, all properties on Cozy Casa are thoroughly verified by our team. We ensure that all listings are accurate, photos are authentic, and hosts are legitimate before they appear on our platform."
+      answer: "Yes, all properties on Resi D' Elite are thoroughly verified by our team. We ensure that all listings are accurate, photos are authentic, and hosts are legitimate before they appear on our platform."
     },
     {
       question: "How do I contact the property host?",

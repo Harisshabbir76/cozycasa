@@ -418,15 +418,15 @@ const Login = () => {
           <div className="login-panel-line" />
           <div className="login-panel-inner">
             <Link to="/" className="login-panel-logo">
-              <span className="login-panel-cozy">Cozy</span>
-              <span className="login-panel-casa">Casa</span>
+              <span className="login-panel-cozy">Resi D'</span>
+              <span className="login-panel-casa"> Elite</span>
               <span className="login-panel-leaf">🌿</span>
             </Link>
             <h2 className="login-panel-heading">
               Premium Stays,<br /><em>Effortlessly</em> Booked
             </h2>
             <p className="login-panel-sub">
-              Join thousands of guests who trust CozyCasa for verified, beautiful properties across Pakistan.
+              Join thousands of guests who trust Resi D' Elite for verified, beautiful properties across Pakistan.
             </p>
             <div className="login-panel-stats">
               {[['1,200+', 'Properties'], ['4.9★', 'Rating'], ['8,400+', 'Bookings']].map(([n, l]) => (
@@ -445,8 +445,8 @@ const Login = () => {
 
             {/* Mobile logo — only visible on small screens */}
             <Link to="/" className="login-mobile-logo">
-              <span className="login-mobile-cozy">Cozy</span>
-              <span className="login-mobile-casa">Casa</span>
+              <span className="login-mobile-cozy">Resi D'</span>
+              <span className="login-mobile-casa"> Elite</span>
             </Link>
 
             <p className="login-eyebrow">Welcome Back</p>

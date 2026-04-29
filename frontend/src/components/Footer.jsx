@@ -322,11 +322,11 @@ const Footer = () => {
           {/* Brand */}
           <div className="footer-brand">
             <Link to="/" className="footer-logo">
-              <span className="footer-brand-cozy">Cozy</span>
-              <span className="footer-brand-casa">Casa</span>
+              <span className="footer-brand-cozy">Resi D'</span>
+              <span className="footer-brand-casa"> Elite</span>
             </Link>
             <p className="footer-tagline">
-              Discover your dream home with CozyCasa. We provide premium real estate listings and seamless room booking experiences.
+              Discover your dream home with Resi D' Elite. We provide premium real estate listings and seamless room booking experiences.
             </p>
             <div className="footer-socials">
               <FiFacebook className="footer-social-icon" />
@@ -374,7 +374,7 @@ const Footer = () => {
               <FiMail className="footer-contact-icon" />
               <div>
                 <p className="footer-contact-label">Email Us</p>
-                <p className="footer-contact-value">hello@cozycasa.com</p>
+                <p className="footer-contact-value">hello@residellite.com</p>
               </div>
             </div>
 
@@ -400,7 +400,7 @@ const Footer = () => {
 
         {/* Bottom bar */}
         <div className="footer-bottom">
-          <p>© 2026 CozyCasa — Built with <span>♡</span> for Premium Living.</p>
+          <p>© 2026 Resi D' Elite — Built with <span>♡</span> for Premium Living.</p>
           <div className="footer-bottom-links">
             <span>English (US)</span>
             <span>Rs. PKR</span>

@@ -90,7 +90,7 @@ router.post('/forgot-password', async (req, res) => {
     await user.save();
 
     // Send email
-    await sendEmail(user.email, 'Your CozyCasa Password Reset OTP', `Your OTP is <strong>${otp}</strong>. It expires in 10 minutes.`);
+    await sendEmail(user.email, 'Your Resi D\' Elite Password Reset OTP', `Your OTP is <strong>${otp}</strong>. It expires in 10 minutes.`);
 
     res.json({ message: 'OTP sent to your email' });
   } catch (error) {
@@ -160,7 +160,7 @@ const sendEmail = async (to, subject, html) => {
   });
 
   await transporter.sendMail({
-    from: `"CozyCasa" <${process.env.SMTP_USER}>`,
+    from: `"Resi D' Elite" <${process.env.SMTP_USER}>`,
     to,
     subject,
     html: `

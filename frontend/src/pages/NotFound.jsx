@@ -175,8 +175,8 @@ const NotFound = () => (
       <div className="nf-inner">
 
         <Link to="/" className="nf-logo">
-          <span className="nf-logo-cozy">Cozy</span>
-          <span className="nf-logo-casa">Casa</span>
+          <span className="nf-logo-cozy">Resi D'</span>
+          <span className="nf-logo-casa"> Elite</span>
           <span className="nf-logo-leaf">🌿</span>
         </Link>
 
@@ -194,7 +194,7 @@ const NotFound = () => (
         </div>
 
         <p className="nf-hint">
-          Need help? <a href="mailto:hello@cozycasa.com">hello@cozycasa.com</a>
+          Need help? <a href="mailto:hello@residellite.com">hello@residellite.com</a>
         </p>
 
       </div>

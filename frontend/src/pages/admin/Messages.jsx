@@ -66,7 +66,7 @@ const Messages = ({ refresh }) => {
 
   const getWhatsAppLink = (whatsapp, name) => {
     const cleanNum = whatsapp.replace(/[^0-9]/g, '');
-    const text = encodeURIComponent(`Hi ${name}, thanks for contacting CozyCasa. How can we help you today?`);
+    const text = encodeURIComponent(`Hi ${name}, thanks for contacting Resi D' Elite. How can we help you today?`);
     return `https://wa.me/${cleanNum}?text=${text}`;
   };
 

@@ -322,8 +322,8 @@ const Register = () => {
           <div className="reg-panel-line" /><div className="reg-panel-line" />
           <div className="reg-panel-inner">
             <Link to="/" className="reg-panel-logo">
-              <span className="reg-panel-cozy">Cozy</span>
-              <span className="reg-panel-casa">Casa</span>
+              <span className="reg-panel-cozy">Resi D'</span>
+              <span className="reg-panel-casa"> Elite</span>
               <span className="reg-panel-leaf">🌿</span>
             </Link>
             <h2 className="reg-panel-heading">
@@ -354,8 +354,8 @@ const Register = () => {
 
             {/* Mobile logo — only visible on small screens, no emoji */}
             <Link to="/" className="reg-mobile-logo">
-              <span className="reg-mobile-cozy">Cozy</span>
-              <span className="reg-mobile-casa">Casa</span>
+              <span className="reg-mobile-cozy">Resi D'</span>
+              <span className="reg-mobile-casa"> Elite</span>
             </Link>
 
             <p className="reg-eyebrow">Get Started</p>

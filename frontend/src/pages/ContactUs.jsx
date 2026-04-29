@@ -224,8 +224,8 @@ const ContactUs = () => {
         <div className="container">
           <div className="contact-panel">
             <div className="contact-panel-logo">
-              <span className="panel-cozy">Cozy</span>
-              <span className="panel-casa">Casa</span>
+              <span className="panel-cozy">Resi D'</span>
+              <span className="panel-casa"> Elite</span>
             </div>
 
             <div className="contact-header">
@@ -339,7 +339,7 @@ const ContactUs = () => {
 
             <div className="contact-footer">
               <div className="contact-footer-divider"></div>
-              <p>Or email us directly at <a href="mailto:support@cozycasa.com">support@cozycasa.com</a></p>
+              <p>Or email us directly at <a href="mailto:support@residellite.com">support@residellite.com</a></p>
               <div className="contact-footer-note">
                 <span>📞 Emergency? Call us: +1 234 567 890</span>
               </div>

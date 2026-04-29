@@ -80,8 +80,8 @@ const AdminDashboard = () => {
   const Sidebar = (
     <aside className={`admin-sidebar${sidebarOpen ? ' open' : ''}`}>
       <Link to="/" className="sidebar-logo">
-        <span className="sidebar-logo-cozy">Cozy</span>
-        <span className="sidebar-logo-casa">Casa</span>
+        <span className="sidebar-logo-cozy">Resi D'</span>
+        <span className="sidebar-logo-casa"> Elite</span>
       </Link>
       <p className="sidebar-section-label">Menu</p>
       <nav className="sidebar-nav">
@@ -108,7 +108,7 @@ const AdminDashboard = () => {
       {/* Mobile top bar */}
       <header className="admin-topbar">
         <Link to="/" className="admin-topbar-logo">
-          <span>Cozy</span><span>Casa</span>
+          <span>Resi D'</span><span> Elite</span>
         </Link>
         <button
           className="admin-menu-btn"

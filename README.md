@@ -1,10 +1,10 @@
-# CozyCasa - Real Estate Property Booking Platform
+# Resi D' Elite - Real Estate Property Booking Platform
 
 [![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)
 [![Backend](https://img.shields.io/badge/Backend-Node.js%20%7C%20Express%20%7C%20MongoDB-green)](https://nodejs.org)
 [![Frontend](https://img.shields.io/badge/Frontend-React-red)](https://reactjs.org)
 
-CozyCasa is a full-stack web application for booking real estate properties. Built with the MERN stack (MongoDB, Express, React, Node.js), it allows users to browse properties, make bookings, handle payments via Stripe, and provides an admin dashboard for property management.
+Resi D' Elite is a full-stack web application for booking real estate properties. Built with the MERN stack (MongoDB, Express, React, Node.js), it allows users to browse properties, make bookings, handle payments via Stripe, and provides an admin dashboard for property management.
 
 ## ✨ Features
 
