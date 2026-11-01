@@ -217,9 +217,14 @@ const EditProperty = ({ properties, refresh }) => {
     const data = new FormData();
     
     // Handle category
-    Object.keys(formData).forEach(k => data.append(k, formData[k])); 
-    
-    
+    // FormData would turn null into the string "null", which fails Number fields
+    Object.keys(formData).forEach(k => {
+      if (formData[k] !== null && formData[k] !== undefined) data.append(k, formData[k]);
+    });
+
+    // Backend replaces the image list, so send the ones being kept
+    data.append('existingImages', JSON.stringify(existingImages));
+
     // Only append new images if present
     if (newFiles.length > 0) {
       newFiles.forEach(file => data.append('images', file));
@@ -234,7 +239,10 @@ const EditProperty = ({ properties, refresh }) => {
       });
       if (refresh) refresh();
       navigate('/admin/dashboard/properties');
-    } catch (err) { console.error(err); }
+    } catch (err) {
+      console.error(err);
+      alert(err.response?.data?.message || 'Failed to update property.');
+    }
     setSaving(false);
   };
 

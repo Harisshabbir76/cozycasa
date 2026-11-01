@@ -347,7 +347,7 @@ const ContactUs = () => {
           </div>
         </div>
 
-        <style jsx>{`
+        <style>{`
           .contact-page {
             min-height: 100vh;
             background: linear-gradient(135deg, #f8faf5 0%, #f0f5ed 100%);

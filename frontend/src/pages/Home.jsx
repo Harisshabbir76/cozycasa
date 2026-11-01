@@ -30,44 +30,14 @@ const homeStyles = `
   /* ── HERO ──────────────────────────────────────────── */
   .hero {
     position: relative;
-    min-height: 92vh;
+    min-height: max(92vh, min(57.3vw, 115vh)); /* matches hero.png's shape so the photo isn't cropped */
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background:
-      radial-gradient(ellipse 80% 60% at 60% 40%, rgba(76,187,23,0.18) 0%, transparent 70%),
-      radial-gradient(ellipse 50% 50% at 20% 80%, rgba(58,153,18,0.12) 0%, transparent 60%),
-      linear-gradient(160deg, #0d1a08 0%, #1a3310 40%, #0f2209 100%);
-  }
-
-  /* Dot grid overlay */
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(76,187,23,0.18) 1px, transparent 1px);
-    background-size: 36px 36px;
-    pointer-events: none;
-  }
-
-  /* Glowing orb */
-  .hero::after {
-    content: '';
-    position: absolute;
-    width: 520px;
-    height: 520px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(76,187,23,0.22) 0%, transparent 70%);
-    top: 10%;
-    right: 8%;
-    pointer-events: none;
-    animation: orb-pulse 6s ease-in-out infinite;
-  }
-
-  @keyframes orb-pulse {
-    0%, 100% { transform: scale(1); opacity: 0.7; }
-    50%       { transform: scale(1.12); opacity: 1; }
+      linear-gradient(180deg, rgba(13,26,8,0.65) 0%, rgba(13,26,8,0.55) 50%, rgba(13,26,8,0.75) 100%),
+      url('/hero.png') center bottom / cover no-repeat;
   }
 
   .hero-content {
@@ -829,6 +799,11 @@ const homeStyles = `
     
     .hero {
       min-height: 85vh;
+      /* hero.png is the fallback if the mobile image is missing */
+      background:
+        linear-gradient(180deg, rgba(13,26,8,0.65) 0%, rgba(13,26,8,0.55) 50%, rgba(13,26,8,0.75) 100%),
+        url('/hero-mobile.jpg') center / cover no-repeat,
+        url('/hero.png') center / cover no-repeat;
     }
     
     .home-cta {

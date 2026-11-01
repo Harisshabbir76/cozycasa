@@ -646,7 +646,7 @@ const AddPropertyType = ({ refresh }) => {
 
       const res = await apiCall({
         method: 'post',
-        url: '/admin/property-types',
+        url: '/categories',
         data: formData,
         headers: { 'Content-Type': 'multipart/form-data' }
       });

@@ -137,7 +137,7 @@ const Overview = ({ properties, bookings }) => {
         )}
       </div>
 
-      <style jsx>{`
+      <style>{`
         /* ── Pending alert ── */
         .pending-alert {
           display: inline-flex;

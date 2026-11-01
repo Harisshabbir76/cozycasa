@@ -786,7 +786,10 @@ const AddProperty = ({ refresh }) => {
     setSaving(true);
     const data = new FormData();
 
-    Object.keys(formData).forEach(k => data.append(k, formData[k]));
+    // FormData would turn null into the string "null", which fails Number fields
+    Object.keys(formData).forEach(k => {
+      if (formData[k] !== null && formData[k] !== undefined) data.append(k, formData[k]);
+    });
     selectedFiles.forEach(file => data.append('images', file));
 
     try {
@@ -800,7 +803,7 @@ const AddProperty = ({ refresh }) => {
       navigate('/admin/dashboard/properties');
     } catch (err) {
       console.error(err);
-      alert('Failed to create property. Check console. Backend now auto-handles categories.');
+      alert(err.response?.data?.message || 'Failed to create property.');
     }
     setSaving(false);
   };

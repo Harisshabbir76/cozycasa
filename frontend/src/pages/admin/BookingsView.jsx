@@ -538,7 +538,7 @@ const BookingsView = ({ bookings, refresh }) => {
         </div>
       )}
 
-      <style jsx>{`
+      <style>{`
         .bookings-view {
           width: 100%;
         }

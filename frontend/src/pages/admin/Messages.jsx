@@ -376,7 +376,7 @@ const Messages = ({ refresh }) => {
         </div>
       )}
 
-      <style jsx>{`
+      <style>{`
         .messages-view {
           width: 100%;
         }
